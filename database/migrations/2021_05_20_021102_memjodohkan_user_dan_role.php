@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class MemjodohkanUserDanRole extends Migration
 {
@@ -15,6 +16,15 @@ class MemjodohkanUserDanRole extends Migration
      */
     public function up()
     {
+        // membuat user
+        for ($i=0; $i < 100; $i++) { 
+            DB::table('users')->insert([
+                'name' => Str::random(10),
+                'email' => Str::random(10).'@emailku.com',
+                'password' => Hash::make('password'),
+            ]);
+        }
+
         $user = User::find(3);
         $editor = Role::where('name', 'editor')->first();
         $user->attachRole($editor);
