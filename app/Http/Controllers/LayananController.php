@@ -39,6 +39,16 @@ class LayananController extends Controller
         return redirect()->route('layanan.index');
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama_layanan'=>'required',
+            'deskripsi_layanan'=>'required'
+        ]);
+
+        return Layanan::create($request->all());
+    }
+
     public function formUbah($id)
     {
         $layanan = Layanan::find($id);

@@ -24,3 +24,4 @@ Route::get('/testing',function(){
 });
 
 Route::get('/layanan/index', [LayananController::class, 'indexApi'])->name('layanan.index');
+Route::post('/layanan', [LayananController::class, 'store'])->name('layanan.store');

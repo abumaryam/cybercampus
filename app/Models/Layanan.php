@@ -9,5 +9,6 @@ class Layanan extends Model
 {
     use HasFactory;
     protected $table = 'layanan';
+    protected $guarded = [];
     // public $timestamps = false;
 }
