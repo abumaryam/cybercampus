@@ -25,6 +25,11 @@ class LayananController extends Controller
         return view('layanan.detail', compact('layanan'));
     }
 
+    public function detailApi($id)
+    {
+        return Layanan::find($id);
+    }
+
     public function formTambah()
     {
         return view('layanan.form_tambah');
