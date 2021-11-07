@@ -13,6 +13,12 @@ class LayananController extends Controller
         return view('layanan.index', compact('layanan'));
     }
 
+    public function indexApi()
+    {
+        $layanan = Layanan::all();
+        return $layanan;
+    }
+
     public function detail($id)
     {
         $layanan = Layanan::find($id);
